@@ -6,7 +6,7 @@ template: template.typ
 files:
   - lapreprint.typ
   - frontmatter.typ
-  - temlpate.typ
+  - template.typ
   - LICENSE
 authors:
   - name: Rowan Cockett
