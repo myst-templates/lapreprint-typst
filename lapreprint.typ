@@ -67,6 +67,8 @@
     short-citation = authors.at(0).name.split(" ").last() + " & " + authors.at(1).name.split(" ").last() + year
   } else if (short-citation == auto and authors.len() > 2) {
     short-citation = authors.at(0).name.split(" ").last() + " " + emph("et al.") + year
+  } else if (short-citation == auto) {
+    short-citation = none
   }
 
   // Set document metadata.
