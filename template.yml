@@ -50,14 +50,14 @@ parts:
   - id: abstract
     description: >
       An abstract is a short summary of your research paper or report. A good
-      abstract will prepare readers for
-
-      the detailed information to follow, communicate the essence of the article
-      and help readers take away and
-
-      remember key points.
+      abstract will prepare readers for the detailed information to follow,
+      communicate the essence of the article and help readers take away and remember key points.
     max_words: 500
     required: true
+  - id: summary
+    description: Plain language summary
+    max_words: 500
+    required: false
   - id: acknowledgements
     description: >
       Acknowledgements printed in the margin
