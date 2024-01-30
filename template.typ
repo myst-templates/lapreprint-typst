@@ -64,8 +64,8 @@
     ),
 [# endfor #]
   ),
-[# if options.venue #]
-  venue: "[-options.venue-]",
+[# if doc.venue.title #]
+  venue: "[-doc.venue.title-]",
 [# endif #]
 [# if options.logo #]
   logo: "[-options.logo-]",
