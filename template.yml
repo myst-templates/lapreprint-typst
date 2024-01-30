@@ -35,10 +35,8 @@ doc:
   - id: open_access
   - id: keywords
   - id: doi
-options:
   - id: venue
-    type: string
-    description: Venue shown in the footer
+options:
   - id: logo
     type: file
     description: An image path that is shown in the top right of the page
