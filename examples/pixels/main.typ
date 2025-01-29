@@ -86,6 +86,8 @@
 )
 
 
+This is the frontmatter that is loaded:
+
 #{
   let front = loadFrontmatter(yaml("myst.yml"))
   [#front]

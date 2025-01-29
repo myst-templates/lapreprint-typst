@@ -80,7 +80,8 @@
   set page(
     paper-size,
     margin: (left: 25%),
-    header: locate(loc => {
+    header: context {
+      let loc = here()
       if(loc.page() == 1) {
         let headers = (
           if (open-access) {smallcaps[Open Access]},
@@ -92,12 +93,12 @@
           (short-title, short-citation).join(spacer)
         ))
       }
-    }),
+    },
     footer: block(
       width: 100%,
       stroke: (top: 1pt + gray),
       inset: (top: 8pt, right: 2pt),
-      [
+      context [
         #grid(columns: (75%, 25%),
           align(left, text(size: 9pt, fill: gray.darken(50%),
               (
@@ -109,7 +110,7 @@
             #text(
               size: 9pt, fill: gray.darken(50%)
             )[
-              #counter(page).display() of #locate((loc) => {counter(page).final(loc).first()})
+              #counter(page).display() of #counter(page).final().first()
             ]
           ]
         )
@@ -129,7 +130,8 @@
 
   // Configure headings.
   set heading(numbering: heading-numbering)
-  show heading: it => locate(loc => {
+  show heading: it => context {
+    let loc = here()
     // Find out the final number of the heading counter.
     let levels = counter(heading).at(loc)
     set text(10pt, weight: 400)
@@ -168,7 +170,7 @@
       }
       _#(it.body):_
     ]
-  })
+  }
 
 
   if (logo != none) {
@@ -191,10 +193,10 @@
 
 
   // Title and subtitle
-  box(inset: (bottom: 2pt), text(17pt, weight: "bold", fill: theme, title))
+  box(inset: (bottom: 2pt), width: 100%, text(17pt, weight: "bold", fill: theme, title))
   if subtitle != none {
     parbreak()
-    box(text(14pt, fill: gray.darken(30%), subtitle))
+    box(width: 100%, text(14pt, fill: gray.darken(30%), subtitle))
   }
   // Authors and affiliations
   if authors.len() > 0 {
@@ -228,7 +230,7 @@
     dy: -10pt,
     box(width: 27%, {
       if (kind != none) {
-        show par: set block(spacing: 0em)
+        show par: set par(spacing: 0em)
         text(11pt, fill: theme, weight: "semibold", smallcaps(kind))
         parbreak()
       }
@@ -267,21 +269,22 @@
 
 
   let abstracts
-  if (type(abstract) == "content") {
+  if (type(abstract) == "content" or type(abstract) == "string") {
     abstracts = ((title: "Abstract", content: abstract),)
   } else {
     abstracts = abstract
   }
 
-  box(inset: (top: 16pt, bottom: 16pt), stroke: (top: 1pt + gray, bottom: 1pt + gray), {
-
-    abstracts.map(abs => {
-      set par(justify: true)
-      text(fill: theme, weight: "semibold", size: 9pt, abs.title)
-      parbreak()
-      abs.content
-    }).join(parbreak())
-  })
+if (abstracts != none and abstracts.len() > 0) {
+    box(inset: (top: 16pt, bottom: 16pt), stroke: (top: 1pt + gray, bottom: 1pt + gray), {
+      abstracts.map(abs => {
+        set par(justify: true)
+        text(fill: theme, weight: "semibold", size: 9pt, abs.title)
+        parbreak()
+        abs.content
+      }).join(parbreak())
+    })
+  }
   if (keywords.len() > 0) {
     text(size: 9pt, {
       text(fill: theme, weight: "semibold", "Keywords")
@@ -291,7 +294,7 @@
   }
   v(10pt)
 
-  show par: set block(spacing: 1.5em)
+  show par: set par(spacing: 1.5em)
 
   // Display the paper's contents.
   body
