@@ -1,21 +1,26 @@
 #import "lapreprint.typ": *
 #show: template.with(
   title: "[-doc.title-]",
+[# if doc.abstract or doc.summary #]
   abstract: (
+[# if parts.abstract #]
     (
       title: "Abstract",
       content: [
 [-parts.abstract-]
       ]
+    ),
+[# endif #]
 [# if parts.summary #]
-    ), (
+    (
       title: "Plain Language Summary",
       content: [
 [-parts.summary-]
       ]
-[# endif #]
     ),
+[# endif #]
   ),
+[# endif #]
 [# if doc.subtitle #]
   subtitle: "[-doc.subtitle-]",
 [# endif #]
@@ -84,7 +89,7 @@
 [# endif #]
 [# if parts.availability #]
     (
-      title: "Data Avaliability",
+      title: "Data Availability",
       content: [
 [-parts.availability-]
       ],
