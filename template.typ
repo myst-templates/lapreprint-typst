@@ -1,7 +1,7 @@
 #import "lapreprint.typ": *
 #show: template.with(
   title: "[-doc.title-]",
-[# if doc.abstract or doc.summary #]
+[# if parts.abstract or parts.summary #]
   abstract: (
 [# if parts.abstract #]
     (
