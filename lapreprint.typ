@@ -276,7 +276,7 @@
   }
 
 if (abstracts != none and abstracts.len() > 0) {
-    box(inset: (top: 16pt, bottom: 16pt), stroke: (top: 1pt + gray, bottom: 1pt + gray), {
+    box(inset: (top: 16pt, bottom: 16pt), width: 100%, stroke: (top: 1pt + gray, bottom: 1pt + gray), {
       abstracts.map(abs => {
         set par(justify: true)
         text(fill: theme, weight: "semibold", size: 9pt, abs.title)
