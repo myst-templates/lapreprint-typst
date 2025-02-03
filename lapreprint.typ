@@ -40,7 +40,7 @@
   // To hide the date, set this to `none`. You can also supply a list of dicts with `title` and `date`.
   date: datetime.today(),
   // Feel free to change this, the font applies to the whole document
-  font-face: "Noto Sans",
+  font-face: none,
   // The path to a bibliography file if you want to cite some external works.
   bibliography-file: none,
   bibliography-style: "apa",
@@ -119,7 +119,11 @@
   )
 
   // Set the body font.
-  set text(font: font-face, size: 10pt)
+  if (font-face != none) {
+    set text(font: font-face, size: 10pt)
+  } else {
+    set text(size: 10pt)
+  }
   // Configure equation numbering and spacing.
   set math.equation(numbering: "(1)")
   show math.equation: set block(spacing: 1em)
