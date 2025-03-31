@@ -32,7 +32,6 @@ doc:
     required: true
   - id: subtitle
   - id: short_title
-  - id: short_citation
   - id: open_access
   - id: keywords
   - id: doi
@@ -44,6 +43,11 @@ options:
   - id: kind
     type: string
     description: The "kind" of the content, e.g. "Original Research" - shown as the title of the margin content on the first page
+  - id: short_citation
+    type: string
+    description: |
+      The short citation used in the document header. By default, it
+      is automatically determined from the author names.
 
 parts:
   - id: abstract

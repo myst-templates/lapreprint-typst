@@ -27,8 +27,8 @@
 [# if doc.short_title #]
   short-title: "[-doc.short_title-]",
 [# endif #]
-[# if doc.short_citation #]
-  citation: "[-doc.short_citation-]",
+[# if options.short_citation #]
+  short-citation: "[-options.short_citation-]",
 [# endif #]
 [# if doc.open_access !== undefined #]
   open-access: [-doc.open_access-],
