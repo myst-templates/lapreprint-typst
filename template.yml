@@ -32,6 +32,7 @@ doc:
     required: true
   - id: subtitle
   - id: short_title
+  - id: short_citation
   - id: open_access
   - id: keywords
   - id: doi
