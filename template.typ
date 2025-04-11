@@ -30,6 +30,9 @@
 [# if options.short_citation #]
   short-citation: "[-options.short_citation-]",
 [# endif #]
+[# if options.heading_numbering #]
+  heading-numbering: "[-options.heading_numbering-]",
+[# endif #]
 [# if doc.open_access !== undefined #]
   open-access: [-doc.open_access-],
 [# endif #]
