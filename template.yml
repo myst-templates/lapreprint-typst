@@ -43,6 +43,16 @@ options:
   - id: kind
     type: string
     description: The "kind" of the content, e.g. "Original Research" - shown as the title of the margin content on the first page
+  - id: short_citation
+    type: string
+    description: |
+      The short citation used in the document header. By default, it
+      is automatically determined from the author names.
+  - id: heading_numbering
+    type: string
+    description: |
+      Heading numbering style.
+      See also https://typst.app/docs/reference/model/numbering/.
 
 parts:
   - id: abstract
