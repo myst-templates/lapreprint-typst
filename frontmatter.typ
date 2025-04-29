@@ -11,20 +11,20 @@
     return
   }
 
-  link("https://orcid.org/" + orcid)[#box(height: 1.1em, baseline: 13.5%)[#image.decode(orcidSvg)]]
+  link("https://orcid.org/" + orcid)[#box(height: 1.1em, baseline: 13.5%)[#image(bytes(orcidSvg))]]
 }
 
 #let validateString(raw, name, alias: none) = {
   if (name in raw) {
-    assert(type(raw.at(name)) == "string", message: name + " must be a string")
+    assert(type(raw.at(name)) == str, message: name + " must be a string")
     return raw.at(name)
   }
-  if (type(alias) != "array") {
+  if (type(alias) != array) {
     return
   }
   for a in alias {
     if (a in raw) {
-      assert(type(raw.at(a)) == "string", message: a + " must be a string")
+      assert(type(raw.at(a)) == str, message: a + " must be a string")
       return raw.at(a)
     }
   }
@@ -32,15 +32,15 @@
 
 #let validateBoolean(raw, name, alias: none) = {
   if (name in raw) {
-    assert(type(raw.at(name)) == "boolean", message: name + " must be a boolean")
+    assert(type(raw.at(name)) == bool, message: name + " must be a boolean")
     return raw.at(name)
   }
-  if (type(alias) != "array") {
+  if (type(alias) != array) {
     return
   }
   for a in alias {
     if (a in raw) {
-      assert(type(raw.at(a)) == "boolean", message: a + " must be a boolean")
+      assert(type(raw.at(a)) == bool, message: a + " must be a boolean")
       return raw.at(a)
     }
   }
@@ -49,7 +49,7 @@
 
 #let validateAffiliation(raw) = {
   let out = (:)
-  if (type(raw) == "string") {
+  if (type(raw) == str) {
     out.name = raw;
     return out;
   }
@@ -96,10 +96,10 @@
     raw.affiliations = raw.affiliation
   }
   if ("affiliations" not in raw) { return; }
-  if (type(raw.affiliations) == "string" or type(raw.affiliations) == "dictionary") {
+  if (type(raw.affiliations) == str or type(raw.affiliations) == dictionary) {
     // convert to a list
     return (validateAffiliation(raw.affiliations),)
-  } else if (type(raw.affiliations) == "array") {
+  } else if (type(raw.affiliations) == array) {
     // validate each entry
     return raw.affiliations.map(validateAffiliation)
   } else {
@@ -110,7 +110,7 @@
 
 #let validateAuthor(raw) = {
   let out = (:)
-  if (type(raw) == "string") {
+  if (type(raw) == str) {
     out.name = raw;
     return out;
   }
@@ -198,10 +198,10 @@
     raw.authors = raw.author
   }
   if ("authors" in raw) {
-    if (type(raw.authors) == "string" or type(raw.authors) == "dictionary") {
+    if (type(raw.authors) == str or type(raw.authors) == dictionary) {
       // convert to a list
       out.authors = (validateAuthor(raw.authors),)
-    } else if (type(raw.authors) == "array") {
+    } else if (type(raw.authors) == array) {
       // validate each entry
       out.authors = raw.authors.map(validateAuthor)
     } else {
