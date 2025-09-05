@@ -53,6 +53,12 @@ options:
     description: |
       Heading numbering style.
       See also https://typst.app/docs/reference/model/numbering/.
+  - id: font_face
+    type: string
+    description: Font face
+  - id: paper_size
+    type: string
+    description: Paper size
 
 parts:
   - id: abstract
