@@ -119,11 +119,9 @@
   )
 
   // Set the body font.
-  if (font-face != none) {
-    set text(font: font-face, size: 10pt)
-  } else {
-    set text(size: 10pt)
-  }
+  set text(size: 10pt)
+  set text(font: font-face)  if (font-face != none)
+
   // Configure equation numbering and spacing.
   set math.equation(numbering: "(1)")
   show math.equation: set block(spacing: 1em)

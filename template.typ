@@ -84,6 +84,12 @@
 [# if options.kind #]
   kind: "[-options.kind-]",
 [# endif #]
+[# if options.font_face #]
+  font-face: "[-options.font_face-]",
+[# endif #]
+[# if options.paper_size #]
+  paper-size: "[-options.paper_size-]",
+[# endif #]
   margin: (
 [# if parts.acknowledgements #]
     (
