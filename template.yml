@@ -53,6 +53,12 @@ options:
     description: |
       Heading numbering style.
       See also https://typst.app/docs/reference/model/numbering/.
+  - id: theme
+    type: string
+    description: |
+      Allows to set the colortheme, e.g. red.darken(30%).
+      Default set to blue.darken(30%)
+      
 
 parts:
   - id: abstract
