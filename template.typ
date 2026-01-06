@@ -33,6 +33,10 @@
 [# if options.heading_numbering #]
   heading-numbering: "[-options.heading_numbering-]",
 [# endif #]
+[# if options.theme #]
+  theme: [-options.theme-],
+[# endif #]
+
 [# if doc.open_access !== undefined #]
   open-access: [-doc.open_access-],
 [# endif #]
