@@ -36,7 +36,6 @@
 [# if options.theme #]
   theme: [-options.theme-],
 [# endif #]
-
 [# if doc.open_access !== undefined #]
   open-access: [-doc.open_access-],
 [# endif #]
