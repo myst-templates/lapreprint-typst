@@ -39,6 +39,8 @@
   // Date published, for example, when you publish your preprint to an archive server.
   // To hide the date, set this to `none`. You can also supply a list of dicts with `title` and `date`.
   date: datetime.today(),
+  // Show the dates in the margin of the first page; the footer always shows the date (the first one, if `date` is a list).
+  margin-dates: true,
   // Feel free to change this, the font applies to the whole document
   font-face: none,
   // The path to a bibliography file if you want to cite some external works.
@@ -238,7 +240,7 @@
         text(11pt, fill: theme, weight: "semibold", smallcaps(kind))
         parbreak()
       }
-      if (dates != none) {
+      if (margin-dates and dates != none) {
         let formatted-dates
 
         grid(columns: (40%, 60%), gutter: 7pt,

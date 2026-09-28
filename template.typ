@@ -42,6 +42,9 @@
 [# if doc.doi #]
   doi: "[-doc.doi-]",
 [# endif #]
+[# if options.margin_dates !== undefined #]
+  margin-dates: [-options.margin_dates-],
+[# endif #]
 [# if doc.date #]
   date: datetime(
     year: [-doc.date.year-],
