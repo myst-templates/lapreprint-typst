@@ -199,7 +199,7 @@ short-citation: auto,
 date: datetime.today()
 ```
 
-The first page will show an open-access statement and the `doi` if available. For DOIs, only include the actual identifier, not the URL portions:
+The first page will show an open-access statement and the `doi` if available. To hide the open-access statement, set `open-access: false` (MyST frontmatter `open_access: false`). For DOIs, only include the actual identifier, not the URL portions:
 
 ![image](https://github.com/rowanc1/LaPreprint/assets/913249/99da9ef4-fa02-4284-ac46-d3b8d2f48752)
 
