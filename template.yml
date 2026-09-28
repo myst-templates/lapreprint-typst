@@ -53,6 +53,11 @@ options:
     description: |
       Heading numbering style.
       See also https://typst.app/docs/reference/model/numbering/.
+  - id: margin_dates
+    type: boolean
+    description: |
+      Show the dates in the margin of the first page. Default is true.
+      The footer always shows the date.
   - id: theme
     type: string
     description: |

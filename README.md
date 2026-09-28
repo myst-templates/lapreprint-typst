@@ -158,6 +158,8 @@ date: (
 
 ![image](https://github.com/rowanc1/LaPreprint/assets/913249/19c9ebda-db98-4ac5-919c-cde339de64b9)
 
+To hide the dates in the margin, set `margin-dates: false` (MyST option `margin_dates: false`). The footer still shows the date (the first one, if `date` is a list).
+
 The rest of the margin content can be set with `margin` property, which takes a `title` and `content`, content is required, however the title is optional.
 
 ```typst
